@@ -1,11 +1,16 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import "./index.css";
 import Quiz from "./components/Quiz";
+import { QuizProvider } from "./contexts/quiz";
 
-ReactDOM.render(
+const rootContainer = document.getElementById("root");
+const root = createRoot(rootContainer);
+
+root.render(
   <React.StrictMode>
-    <Quiz />
-  </React.StrictMode>,
-  document.getElementById("root")
+    <QuizProvider>
+      <Quiz />
+    </QuizProvider>
+  </React.StrictMode>
 );
